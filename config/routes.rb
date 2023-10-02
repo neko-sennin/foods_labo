@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resource :users, only: [:edit, :update]
     get 'users/my_page' => 'users#show'
+    get '/users/check' => 'users#check'
+    patch '/users/withdraw' => 'users#withdraw'
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     get 'likes/index' => 'likes/index'

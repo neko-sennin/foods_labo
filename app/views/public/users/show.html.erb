@@ -1,15 +1,32 @@
 <div class="container">
   
-  <div class="row my-4">
+  <div class="row my-3">
     <h2>マイページ</h2>
   </div>
   
-  <div class="row">
+  <div class="row my-3">
     <%= link_to "編集する", edit_users_path %>
   </div>
   
   <div class="row">
-    
+    <table>
+      <tr>
+        <th>名前</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>性別</th>
+        <td><%= User.gender_methods_i18n[@user.gender_method] %></td>
+      </tr>
+      <tr>
+        <th>年齢</th>
+        <td><%= User.age_methods_i18n[@user.age_method] %></td>
+      </tr>
+    </table>
   </div>
   
 </div>

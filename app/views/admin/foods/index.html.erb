@@ -15,14 +15,14 @@
       <thead>
         <tr>
           <th>食材名</th>
-          <th>成分</th>
+          <th></th>
         </tr>
       </thead>
       <% @foods.each do |food| %>
       <tbody>
         <tr>
           <td><%= link_to food.name, admin_food_path(food.id), class:"text-dark" %></td>
-          <td><%= food.component %></td>
+          <td></td>
         </tr>
       </tbody>
       <% end %>

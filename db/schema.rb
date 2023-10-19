@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_23_063545) do
+ActiveRecord::Schema.define(version: 2023_10_19_141758) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,9 +52,22 @@ ActiveRecord::Schema.define(version: 2023_09_23_063545) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.integer "food_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string "name", null: false
-    t.string "component", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.integer "food_id", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -78,9 +91,9 @@ ActiveRecord::Schema.define(version: 2023_09_23_063545) do
     t.integer "food_id", null: false
     t.string "title", null: false
     t.integer "period"
-    t.integer "period_amount", default: 0, null: false
+    t.integer "period_method", default: 0, null: false
     t.integer "intake"
-    t.integer "intake_amount", default: 0, null: false
+    t.integer "intake_method", default: 0, null: false
     t.text "comment", null: false
     t.integer "score", null: false
     t.datetime "created_at", precision: 6, null: false

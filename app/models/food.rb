@@ -1,5 +1,8 @@
 class Food < ApplicationRecord
   
+  has_many :ingredients
+  belongs_to :category
+  
   has_one_attached :image
   
   def get_image(width,height)

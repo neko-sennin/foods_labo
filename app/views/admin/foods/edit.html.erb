@@ -1,2 +1,27 @@
-<h1>Admin::Foods#edit</h1>
-<p>Find me in app/views/admin/foods/edit.html.erb</p>
+<div class="container">
+  
+  <div class="row mt-3">
+    <h2>食材編集</h2>
+  </div>
+  
+  <div class="row mt-3">
+    <%= form_with model: @food, url: admin_food_path, local: true do |f| %>
+    <table>
+      <tr>
+        <th><%= label "食材画像" %></th>
+        <th><%= f.file_field :image, accept: "image/*" %></th>
+      </tr>
+      <tr>
+        <th><%= f.label "食材名" %>></th>
+        <td><%= f.file_field :name, autofocus: true %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "成分" %>></th>
+        <td><%= f.file_field :component, autofocus: true %></td>
+      </tr>
+    </table>
+      <div><%= f.submit "変更を保存", class:"btn btn-success" %></div>
+    <% end %>
+  </div>
+  
+</div>

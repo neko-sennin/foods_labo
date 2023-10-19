@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="row mt-3">
+    <h2>食材詳細</h2>
+  </div>
+  
+  <div class="row mt-3">
+    <table>
+      <tr>
+        <% if @food.image.attached? %>
+          <%= image_tag @food.image, size: "250x250" %>
+        <% else %>
+          <%= image_tag 'default_image', size: "250x250" %>
+        <% end %>
+      </tr>
+      <tr>
+        <th>食材名</th>
+        <td><%= @food.name %></td>
+      </tr>
+      <tr>
+        <th>成分</th>
+        <td><%= @food.component %></td>
+      </tr>
+    </table>
+    <div><%= link_to "編集する", edit_admin_food_path, class: "btn btn-success" %></div>
+  </div>
+
+</div>

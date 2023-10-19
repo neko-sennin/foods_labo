@@ -1,2 +1,27 @@
-<h1>Admin::Foods#new</h1>
-<p>Find me in app/views/admin/foods/new.html.erb</p>
+<div class="container">
+  
+  <div class="mx-auto mt-3" style="width: 200px;">
+    <h2>食材新規登録</h2>
+  </div>
+  
+  <div class="mx-auto mt-3">
+    <%= form_with model: @food, url: admin_foods_path, local: true do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label "食材画像" %></th>
+        <td><%= f.file_field :image, accept: "image/*" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "食材名" %></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "成分" %></th>
+        <td><%= f.text_field :component %></td>
+      </tr>
+    </table>
+    <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-secondary" %></div>
+    <% end %>
+  </div>
+  
+</div>

@@ -27,6 +27,10 @@
         <td><%= User.age_methods_i18n[@user.age_method] %></td>
       </tr>
       <tr>
+        <th>自己紹介</th>
+        <td><%= @user.introduction %></td>
+      </tr>
+      <tr>
         <th>会員ステータス</th>
         <td>
           <% if @user.is_active %>

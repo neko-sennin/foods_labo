@@ -7,11 +7,8 @@
   <div class="row mt-3">
     <table>
       <tr>
-        <% if @food.image.attached? %>
-          <%= image_tag @food.image, size: "250x250" %>
-        <% else %>
-          <%= image_tag 'default_image', size: "250x250" %>
-        <% end %>
+        <%= image_tag @food.get_image(250,250) %>
+        
       </tr>
       <tr>
         <th>食材名</th>

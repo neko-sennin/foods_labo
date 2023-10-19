@@ -15,14 +15,14 @@
   </div>
   <div class="field">
     <%= f.label "性別" %>
-    <%= f.radio_button :gender_method, 0, checked: true %>未設定
-    <%= f.radio_button :gender_method, 1 %>男性
-    <%= f.radio_button :gender_method, 2 %>女性
-    <%= f.radio_button :gender_method, 3 %>その他
+    <%= f.radio_button :gender_method, :unentered, checked: true %>未設定
+    <%= f.radio_button :gender_method, :male %>男性
+    <%= f.radio_button :gender_method, :female %>女性
+    <%= f.radio_button :gender_method, :other %>その他
   </div>
   <div class="field">
     <%= f.label "年齢" %>
-    <%= f.select :age_method, User.age_methods.keys.map { |k| I18n.t("enums.user.age_method.#{k}") } %>
+    <%= f.select :age_method, User.age_methods.keys.map { |k| [I18n.t("enums.user.age_method.#{k}"), k] } %>
   </div>
   <div class="actions">
     <%= f.submit "編集内容を保存" %>

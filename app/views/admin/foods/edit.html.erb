@@ -8,15 +8,15 @@
     <%= form_with model: @food, url: admin_food_path, local: true do |f| %>
     <table>
       <tr>
-        <th><%= label "食材画像" %></th>
+        <th><%= f.label "食材画像" %></th>
         <th><%= f.file_field :image, accept: "image/*" %></th>
       </tr>
       <tr>
-        <th><%= f.label "食材名" %>></th>
+        <th><%= f.label "食材名" %></th>
         <td><%= f.file_field :name, autofocus: true %></td>
       </tr>
       <tr>
-        <th><%= f.label "成分" %>></th>
+        <th><%= f.label "成分" %></th>
         <td><%= f.file_field :component, autofocus: true %></td>
       </tr>
     </table>

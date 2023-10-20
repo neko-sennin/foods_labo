@@ -1,9 +1,9 @@
 <div class="container">
   
   <div class="row mt-3">
-    <h2>食材一覧</h2>
+    <h2>カテゴリ一覧</h2>
     <div class="nav-link">
-      <%= link_to new_admin_food_path, class:"nav-link text-dark" do %>
+      <%= link_to new_admin_category_path, class:"nav-link text-dark" do %>
         <i class="fas fa-plus-square"></i>
       <% end %>
     </div>
@@ -13,14 +13,14 @@
     <table>
       <thead>
         <tr>
-          <th>食材名</th>
+          <th>カテゴリ名</th>
           <th></th>
         </tr>
       </thead>
-      <% @foods.each do |food| %>
+      <% @categories.each do |category| %>
       <tbody>
         <tr>
-          <td><%= link_to food.name, admin_food_path(food.id), class:"text-dark" %></td>
+          <td><%= link_to category.name, edit_admin_category_path(category.id), class:"text-dark" %></td>
           <td></td>
         </tr>
       </tbody>

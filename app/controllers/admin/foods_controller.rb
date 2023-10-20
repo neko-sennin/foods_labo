@@ -39,6 +39,13 @@ class Admin::FoodsController < ApplicationController
     end
   end
   
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+    flash[:success] = "選択された食材を削除しました"
+    redirect_to admim_foods_path
+  end
+  
   private
   def food_params
     params.require(:food).permit(:image, :name)

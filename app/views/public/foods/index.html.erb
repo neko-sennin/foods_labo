@@ -1,4 +1,16 @@
-<h1>食材ランキング</h1>
-<div>
+<div class="container">
+  
+  <div class="row mt-3">
+    <h2>食材一覧</h2>
+  </div>
+  
+  <div class="row mt-3">
+    <% @foods.each do |food| %>
+      <p><%= food.name %></p>
+      <%= link_to food_path(food.id) do %>
+        <%= image_tag food.get_image(100,100) %>
+      <% end %>
+    <% end %>
+  </div>
   
 </div>

@@ -41,7 +41,7 @@ class Admin::FoodsController < ApplicationController
   
   private
   def food_params
-    params.require(:food).permit(:image, :name, :component)
+    params.require(:food).permit(:image, :name)
   end
   
 end

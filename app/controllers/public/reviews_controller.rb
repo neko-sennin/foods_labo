@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  
   def new
   end
 
@@ -10,4 +11,5 @@ class Public::ReviewsController < ApplicationController
 
   def edit
   end
+  
 end

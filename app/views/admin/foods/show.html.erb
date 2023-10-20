@@ -7,19 +7,21 @@
   <div class="row mt-3">
     <table>
       <tr>
-        <%= image_tag @food.get_image(250,250) %>
-        
+        <%= image_tag @food.get_image(200,200) %>
       </tr>
       <tr>
         <th>食材名</th>
         <td><%= @food.name %></td>
       </tr>
       <tr>
-        <th></th>
+        <th>成分</th>
         <td></td>
       </tr>
+      <tr>
+        <th><%= link_to "編集する", edit_admin_food_path, class: "btn btn-success" %></th>
+        <td><%= link_to "戻る", admin_food_path, class: "btn btn-primary" %></td>
+      </tr>
     </table>
-    <div><%= link_to "編集する", edit_admin_food_path, class: "btn btn-success" %></div>
   </div>
 
 </div>

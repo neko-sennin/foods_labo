@@ -1,2 +1,26 @@
-<h1>Public::Foods#show</h1>
-<p>Find me in app/views/public/foods/show.html.erb</p>
+<div class="container">
+  
+  <div class="row mt-3">
+    <h2>食材詳細</h2>
+  </div>
+  
+  <div class="row mt-3">
+    <table>
+      <tr>
+        <%= image_tag @food.get_image(200,200) %>
+      </tr>
+      <tr>
+        <th>食材名</th>
+        <td><%= @food.name %></td>
+      </tr>
+      <tr>
+        <th>成分</th>
+        <td></td>
+      </tr>
+      <tr>
+        <th><%= link_to "戻る", foods_path, class: "btn btn-primary" %></th>
+      </tr>
+    </table>
+  </div>
+  
+</div>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     get 'likes/index' => 'likes/index'
+    get 'tags/index' => 'tags/index'
+    get 'categories/index' => 'categories#index'
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

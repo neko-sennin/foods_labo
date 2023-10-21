@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label "年齢" %>
-    <%= f.select :age, User.age_methods.keys.map { |k| I18n.t("enums.user.age_method.#{k}") } %>
+    <%= f.select :age,  [ ["未設定", "unentered"] , ["10代", "teens"],  ["20代", "twenties"],  ["30代", "thirties"], ["40代", "forties"], ["50代", "fifties"], ["60代", "sixties"], ["70代", "seventies"],  ["80代", "eighties"] ]  %>
   </div>
   <div class="field">
     <%= f.label "自己紹介" %>

@@ -19,14 +19,14 @@
   </div>
   <div class="field">
     <%= f.label "性別" %>
-    <%= f.radio_button :gender_method, :unentered, checked: true %>未設定
-    <%= f.radio_button :gender_method, :male %>男性
-    <%= f.radio_button :gender_method, :female %>女性
-    <%= f.radio_button :gender_method, :other %>その他
+    <%= f.radio_button :gender, :unentered, checked: true %>未設定
+    <%= f.radio_button :gender, :male %>男性
+    <%= f.radio_button :gender, :female %>女性
+    <%= f.radio_button :gender, :other %>その他
   </div>
   <div class="field">
     <%= f.label "年齢" %>
-    <%= f.select :age_method, User.age_methods.keys.map { |k| [I18n.t("enums.user.age_method.#{k}"), k] } %>
+    <%= f.select :age, User.ages.keys.map { |k| [I18n.t("enums.user.ages.#{k}"), k] } %>
   </div>
   <div class="field">
     <%= f.label "自己紹介" %>

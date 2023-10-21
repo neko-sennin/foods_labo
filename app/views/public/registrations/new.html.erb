@@ -14,15 +14,15 @@
   
     <div class="field">
       <%= f.label "性別" %>
-      <%= f.radio_button :gender_method, "unentered", checked: true %>未設定
-      <%= f.radio_button :gender_method, "male" %>男性
-      <%= f.radio_button :gender_method, "female" %>女性
-      <%= f.radio_button :gender_method, "other" %>その他
+      <%= f.radio_button :gender, "unentered", checked: true %>未設定
+      <%= f.radio_button :gender, "male" %>男性
+      <%= f.radio_button :gender, "female" %>女性
+      <%= f.radio_button :gender, "other" %>その他
     </div>
   
     <div class="field">
       <%= f.label "年齢" %>
-      <%= f.select :age_method,  [ ["未設定", "unentered"] , ["10代", "teens"],  ["20代", "twenties"],  ["30代", "thirties"], ["40代", "forties"], ["50代", "fifties"], ["60代", "sixties"], ["70代", "seventies"],  ["80代", "eighties"] ]  %>
+      <%= f.select :age,  [ ["未設定", "unentered"] , ["10代", "teens"],  ["20代", "twenties"],  ["30代", "thirties"], ["40代", "forties"], ["50代", "fifties"], ["60代", "sixties"], ["70代", "seventies"],  ["80代", "eighties"] ]  %>
     </div>
 
     <div class="field">

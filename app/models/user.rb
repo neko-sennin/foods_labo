@@ -13,8 +13,8 @@ class User < ApplicationRecord
     image.variant(resize_to_limit: [width,height]).processed
   end
   
-  enum gender_method: { unentered: 0, male: 1, female: 2, other: 3 }, _prefix: true
-  enum age_method: { unentered: 0, teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6, seventies: 7, eighties: 8 }, _prefix: true
+  enum gender: { unentered: 0, male: 1, female: 2, other: 3 }, _prefix: true
+  enum age: { unentered: 0, teens: 1, twenties: 2, thirties: 3, forties: 4, fifties: 5, sixties: 6, seventies: 7, eighties: 8 }, _prefix: true
   
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   

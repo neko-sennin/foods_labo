@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_19_141758) do
+ActiveRecord::Schema.define(version: 2023_10_21_090518) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,20 +53,26 @@ ActiveRecord::Schema.define(version: 2023_10_19_141758) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.integer "food_id", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "food_ingredients", force: :cascade do |t|
+    t.integer "food_id", null: false
+    t.integer "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "foods", force: :cascade do |t|
+    t.integer "category_id", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
-    t.integer "food_id", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,11 +97,11 @@ ActiveRecord::Schema.define(version: 2023_10_19_141758) do
     t.integer "food_id", null: false
     t.string "title", null: false
     t.integer "period"
-    t.integer "period_method", default: 0, null: false
+    t.integer "period_amount", default: 0, null: false
     t.integer "intake"
-    t.integer "intake_method", default: 0, null: false
+    t.integer "intake_amount", default: 0, null: false
     t.text "comment", null: false
-    t.integer "score", null: false
+    t.float "star", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -113,8 +119,8 @@ ActiveRecord::Schema.define(version: 2023_10_19_141758) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.integer "gender_method", default: 0, null: false
-    t.integer "age_method", default: 0, null: false
+    t.integer "gender", default: 0, null: false
+    t.integer "age", default: 0, null: false
     t.text "introduction"
     t.boolean "is_active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false

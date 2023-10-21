@@ -48,7 +48,7 @@ class Admin::FoodsController < ApplicationController
   
   private
   def food_params
-    params.require(:food).permit(:image, :name)
+    params.require(:food).permit(:category_id, :image, :name)
   end
   
 end

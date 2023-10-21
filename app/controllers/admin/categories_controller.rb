@@ -48,6 +48,6 @@ class Admin::CategoriesController < ApplicationController
   
   private
   def category_params
-    params.require(:category).permit(:food_id, :name)
+    params.require(:category).permit(:name)
   end
 end

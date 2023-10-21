@@ -7,22 +7,22 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
   
-    <div class="field">
+    <div class="名前">
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
   
     <div class="field">
       <%= f.label "性別" %>
-      <%= f.radio_button :gender_method, 0, checked: true %>未設定
-      <%= f.radio_button :gender_method, 1 %>男性
-      <%= f.radio_button :gender_method, 2 %>女性
-      <%= f.radio_button :gender_method, 3 %>その他
+      <%= f.radio_button :gender_method, "unentered", checked: true %>未設定
+      <%= f.radio_button :gender_method, "male" %>男性
+      <%= f.radio_button :gender_method, "female" %>女性
+      <%= f.radio_button :gender_method, "other" %>その他
     </div>
   
     <div class="field">
       <%= f.label "年齢" %>
-      <%= f.select :age_method, User.age_methods.keys.map { |k| I18n.t("enums.user.age_method.#{k}") } %>
+      <%= f.select :age_method,  [ ["未設定", "unentered"] , ["10代", "teens"],  ["20代", "twenties"],  ["30代", "thirties"], ["40代", "forties"], ["50代", "fifties"], ["60代", "sixties"], ["70代", "seventies"],  ["80代", "eighties"] ]  %>
     </div>
 
     <div class="field">
@@ -44,7 +44,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "登録" %>
     </div>
   <% end %>
 

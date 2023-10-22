@@ -20,7 +20,8 @@
       <% @foods.each do |food| %>
       <tbody>
         <tr>
-          <td><%= link_to food.name, admin_food_path(food.id), class:"text-dark" %></td>
+          <td><%= link_to food.name, admin_food_path(food.id), class:"text-dark" ,data: {"turbolinks"=>false}%></td>
+          <!--ページの再読み込みを行わないことで、Webページの動作を高速化しているコード。-->
           <td></td>
         </tr>
       </tbody>

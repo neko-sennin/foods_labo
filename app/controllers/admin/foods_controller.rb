@@ -32,7 +32,7 @@ class Admin::FoodsController < ApplicationController
     @food = Food.find(params[:id])
     if @food.update(food_params)
       flash.now[:success] = "食材詳細の変更が完了しました"
-      redirect_to admin_foods_path
+      redirect_to admin_food_path(@food.id)
     else
       flash.now[:danger] = "食材詳細の変更内容に不備があります"
       render :edit

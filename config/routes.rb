@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :tags, only: [:new, :create,:index, :edit, :update, :destroy]
     resources :categories, only: [:new, :create,:index, :show, :edit, :update, :destroy]
+    resources :ingredients, only: [:create, :index, :edit, :update, :destroy]
   end
   
   scope module: :public do
@@ -29,7 +30,10 @@ Rails.application.routes.draw do
     get 'likes/index' => 'likes#index'
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'
+    get 'ingredients/index' => 'ingredients#index'
   end
   
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
 end

@@ -16,6 +16,7 @@ class Admin::TagsController < ApplicationController
   end
 
   def index
+    @tag = Tag.new
     @tags = Tag.page(params[:page])
     @tags_all = Tag.all
   end

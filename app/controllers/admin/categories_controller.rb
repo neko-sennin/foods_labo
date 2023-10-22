@@ -1,9 +1,5 @@
 class Admin::CategoriesController < ApplicationController
   
-  def new
-    @category = Category.new
-  end
-  
   def create
     @category = Category.new(category_params)
     if @category.save
@@ -16,12 +12,9 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def index
+    @category = Category.new
     @categories = Category.page(params[:page])
     @categories_all = Category.all
-  end
-
-  def show
-    @category = Category.find(params[:id])
   end
 
   def edit
@@ -50,4 +43,5 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
+  
 end

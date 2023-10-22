@@ -12,6 +12,10 @@
         <th><%= f.file_field :image, accept: "image/*" %></th>
       </tr>
       <tr>
+        <th><%= f.label "カテゴリ" %></th>
+        <td><%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "--選択してください--"} %></td>
+      </tr>
+      <tr>
         <th><%= f.label "食材名" %></th>
         <td><%= f.text_field :name, autofocus: true %></td>
       </tr>

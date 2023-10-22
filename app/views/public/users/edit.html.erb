@@ -1,6 +1,6 @@
 <div class="container">
     
-  <div class="row my-3">
+  <div class="row mt-3">
     <h2>会員情報編集</h2>
   </div>
   
@@ -33,7 +33,7 @@
     <%= f.text_area :introduction, autofocus: true %>
   </div>
   <div class="actions">
-    <%= f.submit "編集内容を保存" %>
+    <%= f.submit "編集内容を保存", class:"btn btn-success" %>
     <%= link_to "退会する", users_check_path %>
   </div>
   <% end %>

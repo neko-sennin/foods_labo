@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     resources :foods, only: [:new, :create,:index, :show, :edit, :update, :destroy]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :tags, only: [:new, :create,:index, :edit, :update, :destroy]
-    resources :categories, only: [:new, :create,:index, :show, :edit, :update, :destroy]
+    resources :tags, only: [:create,:index, :edit, :update, :destroy]
+    resources :categories, only: [:create,:index, :edit, :update, :destroy]
     resources :ingredients, only: [:create, :index, :edit, :update, :destroy]
   end
   

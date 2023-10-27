@@ -8,6 +8,14 @@
     <%= form_with model: @review, url: reviews_path, local: true do |f| %>
     <table>
       <tr>
+        <th><%= f.label "ユーザー" %></th>
+        <td><%= f.text_field :user_id %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "食材" %></th>
+        <td><%= f.collection_select :food_id, Food.all, :id, :name, {prompt: "--選択してください--"} %></td>
+      </tr>
+      <tr>
         <th><%= f.label "題名" %></th>
         <td><%= f.text_field :title %></td>
       </tr>

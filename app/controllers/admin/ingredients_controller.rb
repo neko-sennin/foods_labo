@@ -7,7 +7,7 @@ class Admin::IngredientsController < ApplicationController
       redirect_to admin_ingredients_path
     else
       flash.now[:alert] = "成分の新規登録内容に不備があります"
-      render :new
+      render :index
     end
   end
   

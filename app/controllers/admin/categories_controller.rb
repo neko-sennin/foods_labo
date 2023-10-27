@@ -7,7 +7,7 @@ class Admin::CategoriesController < ApplicationController
       redirect_to admin_categories_path
     else
       flash.now[:alert] = "カテゴリの新規登録内容に不備があります"
-      render :new
+      render :index
     end
   end
 

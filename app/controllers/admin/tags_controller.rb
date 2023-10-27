@@ -1,9 +1,5 @@
 class Admin::TagsController < ApplicationController
   
-  def new
-    @tag = Tag.new
-  end
-  
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
@@ -11,7 +7,7 @@ class Admin::TagsController < ApplicationController
       redirect_to admin_tags_path
     else
       flash.now[:alert] = "タグの新規登録内容に不備があります"
-      render :new
+      render :index
     end
   end
 
@@ -20,11 +16,7 @@ class Admin::TagsController < ApplicationController
     @tags = Tag.page(params[:page])
     @tags_all = Tag.all
   end
-
-  def show
-    @tag = Tag.find(params[:id])
-  end
-
+  
   def edit
     @tag = Tag.find(params[:id])
   end

@@ -1,2 +1,21 @@
-<h1>Public::Reviews#edit</h1>
-<p>Find me in app/views/public/reviews/edit.html.erb</p>
+<div class="container">
+  
+  <div class="row mt-3">
+    <h2>投稿編集</h2>
+  </div>
+  
+  <div class="mx-auto mt-3">
+    <script>
+      let elem = document.querySelector('#stars');
+      let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'review[star]',
+          score: "<%= isEdit ? jonsoku.star : 0 %>"
+      };
+      window.raty(elem, opt);
+    </script>
+  </div>
+  
+</div>

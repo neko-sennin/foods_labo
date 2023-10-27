@@ -43,8 +43,19 @@
         <td><%= f.text_area :comment %></td>
       </tr>
       <tr>
-        <th><%= f.label "評価" %></th>
-        <td><%= f.text_field :score %></td>
+        <th><div id="stars"><%= f.label "星" %></div></th>
+        <td>
+          <script>
+            let elem = document.querySelector('#stars');
+            let opt = {
+              starOn: "<%= asset_path('star-on.png') %>",
+              starOff: "<%= asset_path('star-off.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              scoreName: 'review[star]' 
+            };
+            window.raty(elem, opt);
+          </script>
+        </td>
       </tr>
       <tr>
         <th><%= f.label "タグ" %></th>

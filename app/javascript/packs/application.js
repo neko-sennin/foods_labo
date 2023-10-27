@@ -16,3 +16,9 @@ import "../stylesheets/application";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+window.raty = function(elem, opt) {
+let raty = new Raty(elem, opt)
+  raty.init(); // initialize (初期化)
+  return raty;
+}

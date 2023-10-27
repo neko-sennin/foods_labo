@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'
     get 'ingredients/index' => 'ingredients#index'
+    get "search" => "searches#search"
   end
   
   

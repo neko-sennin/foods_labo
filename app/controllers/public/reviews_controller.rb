@@ -18,6 +18,19 @@ class Public::ReviewsController < ApplicationController
   def index
     @reviews = Review.page(params[:page])
     @reviews_all = Review.all
+    if params[:new_review]
+      @reviews = Review.new_review
+    elsif params[:old_review]
+      @reviews = Review.old_review
+    else
+      @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
+    end
+    if params[:keyword]
+      @reviews = @reviews.search(params[:keyword]).page(params[:page])
+    else
+      @reviews = @reviews.page(params[:page])
+    end
+    @keyword = params[:keyword]
   end
 
   def show
@@ -45,7 +58,6 @@ class Public::ReviewsController < ApplicationController
     flash[:success] = "選択された投稿を削除しました"
     render_to reviews_path
   end
-  
   
   private
   def review_params

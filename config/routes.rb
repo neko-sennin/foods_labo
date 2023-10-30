@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   
+  namespace :public do
+    get 'contacts/new'
+  end
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -27,6 +30,10 @@ Rails.application.routes.draw do
     patch '/users/withdraw' => 'users#withdraw'
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    resources :contacts, only: [:new, :create]
+    post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
+    post 'contacts/back', to: 'contacts#back', as: 'back'
+    get 'done', to: 'contacts#done', as: 'done'
     get 'likes/index' => 'likes#index'
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'

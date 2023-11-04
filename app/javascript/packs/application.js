@@ -12,13 +12,15 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
+//require("packs/raty");
+import Raty from "packs/raty"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 window.raty = function(elem, opt) {
-let raty = new Raty(elem, opt)
+ let raty = new Raty(elem, opt)
   raty.init(); // initialize (初期化)
   return raty;
 }

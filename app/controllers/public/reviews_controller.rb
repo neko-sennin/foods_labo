@@ -5,8 +5,9 @@ class Public::ReviewsController < ApplicationController
   end
   
   def create
-    @review = Review.new(revew_params)
-    if @review.save
+    @review = Review.new(review_params)
+    @review.user_id = current_user.id
+    if @review.save!
       flash[:notice] = "新規投稿が完了しました"
       redirect_to review_path(@review.id)
     else
@@ -34,7 +35,8 @@ class Public::ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
+    @review = Review.find_by(id: params[:id]) 
+    @review_tags = @review.tags
   end
 
   def edit
@@ -61,7 +63,7 @@ class Public::ReviewsController < ApplicationController
   
   private
   def review_params
-    params.require(:review).permit(:user_id, :food_id, :title, :period, :period_amount, :intake, :intake_amount, :comment, :star, { tad_ids: [] })
+    params.require(:review).permit(:user_id, :food_id, :title, :period, :period_amount, :intake, :intake_amount, :comment, :star, { tag_ids: [] })
   end
   
 end

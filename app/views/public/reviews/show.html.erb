@@ -4,7 +4,38 @@
     <h2>投稿詳細</h2>
   </div>
   
-  <div class="mx-auto mt-3">
+  <div class="row">
+    <table>
+      <tr>
+        <th>食材</th>
+        <td><%= @review.food.name %></td>
+      </tr>
+      <tr>
+        <th>タイトル</th>
+        <td><%= @review.title %></td>
+      </tr>
+      <tr>
+        <th>期間</th>
+        
+        <td><%= @review.period %><%= @review.period_amount_i18n %></td>
+      </tr>
+      <tr>
+        <th>摂取量</th>
+        <td><%= @review.intake %><%= @review.intake_amount_i18n %></td>
+      </tr>
+      <tr>
+        <th>感想</th>
+        <td><%= @review.comment %></td>
+      </tr>
+      <tr>
+        <th>タグ</th>
+        <td>
+          <% @review_tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
     <div id="show-stars"></div>
     <script>
       let showRateElement = document.querySelector('#show-stars');
@@ -19,5 +50,6 @@
       window.raty(showRateElement, showOpt);
     </script>	
   </div>
-  
+  <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
+  <%= link_to "戻る", reviews_path, class: "btn btn-primary" %>
 </div>

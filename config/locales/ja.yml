@@ -16,6 +16,18 @@ ja:
         sixties: "60代"
         seventies: "70代"
         eighties: "80代以上"
+    review:
+      period_amount:
+        unentered: "未設定"
+        date: "日"
+        week: "週間"
+        month: "ヶ月"
+        year: "年"
+      intake_amount:
+        unentered: "未設定"
+        piece: "個"
+        gram: "g"
+        liter: "ml"
   activerecord:
     errors:
       messages:

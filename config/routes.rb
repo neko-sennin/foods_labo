@@ -31,10 +31,10 @@ Rails.application.routes.draw do
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:new, :create]
+    resources :likes, only: [:create, :index, :destroy]
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'done', to: 'contacts#done', as: 'done'
-    get 'likes/index' => 'likes#index'
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'
     get 'ingredients/index' => 'ingredients#index'

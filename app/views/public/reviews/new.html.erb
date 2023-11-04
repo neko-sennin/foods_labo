@@ -21,11 +21,11 @@
       </tr>
       <tr>
         <th><%= f.label "(単位)" %></th>
-        <td><%= f.radio_button :period_method, :unentered, checked: true %>未設定</td>
-        <td><%= f.radio_button :period_method, :date %>日</td>
-        <td><%= f.radio_button :period_method, :week %>週間</td>
-        <td><%= f.radio_button :period_method, :month %>ヶ月</td>
-        <td><%= f.radio_button :period_method, :year %>年</td>
+        <td><%= f.radio_button :period_amount, :unentered, checked: true %>未設定</td>
+        <td><%= f.radio_button :period_amount, :date %>日</td>
+        <td><%= f.radio_button :period_amount, :week %>週間</td>
+        <td><%= f.radio_button :period_amount, :month %>ヶ月</td>
+        <td><%= f.radio_button :period_amount, :year %>年</td>
       </tr>
       <tr>
         <th><%= f.label "摂取量" %></th>
@@ -33,10 +33,10 @@
       </tr>
       <tr>
         <th><%= f.label "(単位)" %></th>
-        <td><%= f.radio_button :intake_method, :unentered, checked: true %>未設定</td>
-        <td><%= f.radio_button :intake_method, :piece %>個</td>
-        <td><%= f.radio_button :intake_method, :gram %>g</td>
-        <td><%= f.radio_button :intake_method, :liter %>ml</td>
+        <td><%= f.radio_button :intake_amount, :unentered, checked: true %>未設定</td>
+        <td><%= f.radio_button :intake_amount, :piece %>個</td>
+        <td><%= f.radio_button :intake_amount, :gram %>g</td>
+        <td><%= f.radio_button :intake_amount, :liter %>ml</td>
       </tr>
       <tr>
         <th><%= f.label "感想" %></th>

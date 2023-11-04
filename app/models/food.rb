@@ -2,6 +2,8 @@ class Food < ApplicationRecord
   
   belongs_to :category
   has_many :reviews
+  has_many :food_ingredients
+  has_many :ingerdients, through: :food_ingredients
   
   has_one_attached :image
   

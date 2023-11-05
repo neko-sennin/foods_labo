@@ -9,7 +9,7 @@ class Review < ApplicationRecord
   enum intake_amount: { unentered: 0, piece: 1, gram: 2, liter: 3 }, _prefix: true
   
   def self.search(keyword)
-    where("facility_name LIKE ?", "%#{keyword}%")
+    where("comment LIKE ?", "%#{keyword}%")
   end
   
 end

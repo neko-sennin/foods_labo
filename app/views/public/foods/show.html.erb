@@ -19,7 +19,11 @@
       </tr>
       <tr>
         <th>主な成分</th>
-        <td><%= @food.ingredient.name %></td>
+        <td>
+          <% @food_ingredients.each do |ingredient| %>
+            <%= ingredient.name %>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th><%= link_to "戻る", foods_path, class: "btn btn-primary" %></th>

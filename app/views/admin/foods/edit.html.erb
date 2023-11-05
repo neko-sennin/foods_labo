@@ -20,8 +20,12 @@
         <td><%= f.text_field :name, autofocus: true %></td>
       </tr>
       <tr>
-        <th></th>
-        <td></td>
+        <th><%= f.label "成分" %></th>
+        <td>
+          <%= collection_check_boxes(:food, :ingredient_ids, Ingredient.all, :id, :name ) do |t| %>
+          <%= t.label { t.check_box + t.text } %>
+          <% end %>
+        </td>
       </tr>
     </table>
       <div><%= f.submit "変更を保存", class:"btn btn-success" %></div>

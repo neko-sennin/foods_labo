@@ -22,6 +22,7 @@ class Admin::FoodsController < ApplicationController
   
   def show
     @food = Food.find(params[:id])
+    @food_ingredients = @food.ingredients
   end
 
   def edit
@@ -48,7 +49,7 @@ class Admin::FoodsController < ApplicationController
   
   private
   def food_params
-    params.require(:food).permit(:category_id, :image, :name)
+    params.require(:food).permit(:category_id, :image, :name, { ingredient_ids: [] })
   end
   
 end

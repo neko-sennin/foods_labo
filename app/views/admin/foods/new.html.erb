@@ -19,6 +19,14 @@
         <th><%= f.label "食材名" %></th>
         <td><%= f.text_field :name %></td>
       </tr>
+      <tr>
+        <th><%= f.label "成分" %></th>
+        <td>
+          <%= collection_check_boxes(:food, :ingredient_ids, Ingredient.all, :id, :name ) do |t| %>
+          <%= t.label { t.check_box + t.text } %>
+          <% end %>
+        </td>
+      </tr>
     </table>
     <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-secondary" %></div>
     <% end %>

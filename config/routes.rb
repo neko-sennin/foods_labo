@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   
   
-  namespace :public do
-    get 'contacts/new'
-  end
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -19,6 +16,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:create,:index, :edit, :update, :destroy]
     resources :categories, only: [:create,:index, :edit, :update, :destroy]
     resources :ingredients, only: [:create, :index, :edit, :update, :destroy]
+    resources :contacts, only: [:index, :show] 
   end
   
   scope module: :public do
@@ -34,6 +32,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :index, :destroy]
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
     post 'contacts/back', to: 'contacts#back', as: 'back'
+    get 'contacts/new' => 'contact#new'
     get 'done', to: 'contacts#done', as: 'done'
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'

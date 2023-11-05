@@ -5,21 +5,6 @@
   </div>
   
   <div class="mx-auto mt-3">
-    <script>
-      // let elem = document.querySelector('#stars');
-      // let opt = {
-      //     starOn: "<%#= asset_path('star-on.png') %>",
-      //     starOff: "<%#= asset_path('star-off.png') %>",
-      //     starHalf: "<%#= asset_path('star-half.png') %>",
-      //     scoreName: 'review[star]',
-      //     score: "<%#= isEdit ? jonsoku.star : 0 %>"
-      // };
-      // window.raty(elem, opt);
-    </script>
-  </div>
-  
-  <div class="mx-auto mt-3">
-    
     <%= form_with model: @review, url: review_path(@review), method: :patch do |f| %>
     <table>
       <tr>
@@ -66,6 +51,18 @@
         </td>
       </tr>
     </table>
+    <div id="stars"></div>
+    <script>
+      let elem = document.querySelector('#stars');
+      let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'review[star]',
+          score: "<%= @review.star || 0 %>"
+      };
+      window.raty(elem, opt);
+    </script>
     <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-secondary" %></div>
     <% end %>
   </div>

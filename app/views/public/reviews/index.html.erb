@@ -24,6 +24,15 @@
           <p><%= review.food.name %></p>
           <p class="card-text"><%= review.comment %></p>
           <span><i class="fas fa-user"></i><%= review.user.name %></span>
+          <% if current_user.likes.exists?(review_id: review.id) %>
+            <%= link_to delete_like_path(review.id), method: :delete, class: "like-btn" do %>
+              <i class="fas fa-heart liked"></i>
+            <% end %>
+          <% else %>
+            <%= link_to like_path(review.id), method: :post, class: "like-btn" do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

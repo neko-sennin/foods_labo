@@ -6,16 +6,68 @@
   
   <div class="mx-auto mt-3">
     <script>
-      let elem = document.querySelector('#stars');
-      let opt = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'review[star]',
-          score: "<%= isEdit ? jonsoku.star : 0 %>"
-      };
-      window.raty(elem, opt);
+      // let elem = document.querySelector('#stars');
+      // let opt = {
+      //     starOn: "<%#= asset_path('star-on.png') %>",
+      //     starOff: "<%#= asset_path('star-off.png') %>",
+      //     starHalf: "<%#= asset_path('star-half.png') %>",
+      //     scoreName: 'review[star]',
+      //     score: "<%#= isEdit ? jonsoku.star : 0 %>"
+      // };
+      // window.raty(elem, opt);
     </script>
+  </div>
+  
+  <div class="mx-auto mt-3">
+    
+    <%= form_with model: @review, url: review_path(@review), method: :patch do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label "題名" %></th>
+        <td><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "食材" %></th>
+        <td><%= f.collection_select :food_id, Food.all, :id, :name, {prompt: "--選択してください--"} %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "期間" %></th>
+        <td><%= f.text_field :period %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "(単位)" %></th>
+        <td><%= f.radio_button :period_amount, :unentered, checked: true %>未設定</td>
+        <td><%= f.radio_button :period_amount, :date %>日</td>
+        <td><%= f.radio_button :period_amount, :week %>週間</td>
+        <td><%= f.radio_button :period_amount, :month %>ヶ月</td>
+        <td><%= f.radio_button :period_amount, :year %>年</td>
+      </tr>
+      <tr>
+        <th><%= f.label "摂取量" %></th>
+        <td><%= f.text_field :intake %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "(単位)" %></th>
+        <td><%= f.radio_button :intake_amount, :unentered, checked: true %>未設定</td>
+        <td><%= f.radio_button :intake_amount, :piece %>個</td>
+        <td><%= f.radio_button :intake_amount, :gram %>g</td>
+        <td><%= f.radio_button :intake_amount, :liter %>ml</td>
+      </tr>
+      <tr>
+        <th><%= f.label "感想" %></th>
+        <td><%= f.text_area :comment %></td>
+      </tr>
+      <tr>
+        <th><%= f.label "タグ" %></th>
+        <td>
+          <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name ) do |t| %>
+          <%= t.label { t.check_box + t.text } %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-secondary" %></div>
+    <% end %>
   </div>
   
 </div>

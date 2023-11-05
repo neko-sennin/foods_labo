@@ -14,8 +14,12 @@
         <td><%= @food.name %></td>
       </tr>
       <tr>
-        <th>成分</th>
-        <td></td>
+        <th>カテゴリ</th>
+        <td><%= @food.category.name %></td>
+      </tr>
+      <tr>
+        <th>主な成分</th>
+        <td><%= @food.ingredient.name %></td>
       </tr>
       <tr>
         <th><%= link_to "戻る", foods_path, class: "btn btn-primary" %></th>

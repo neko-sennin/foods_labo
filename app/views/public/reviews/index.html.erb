@@ -24,7 +24,7 @@
           <p><%= review.food.name %></p>
           <p class="card-text"><%= review.comment %></p>
           <span><i class="fas fa-user"></i><%= review.user.name %></span>
-          <%#= render "likes", review: @review %>
+          <%= render "likes", review: review %>
         </div>
       </div>
     </div>

@@ -19,7 +19,8 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to root_path, notice: "お問い合わせ内容を送信しました"
+      ContactMailer.send_mail(@contact).deliver_now
+      redirect_to done_path
     else
       render :new
     end

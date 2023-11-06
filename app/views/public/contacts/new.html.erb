@@ -10,6 +10,7 @@
   <h2 class="contact-title mt-3">お問い合わせフォーム</h2>
   
   <%= form_for @contact, url: confirm_path do |f| %>
+    <%#=f.hidden_field :user_id,value:current_user.id%>
     <%= f.label :名前 %>
       <%= f.text_field :name, class:"form-control" %>
     <%= f.label :メールアドレス %>

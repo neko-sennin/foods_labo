@@ -25,11 +25,12 @@ Rails.application.routes.draw do
     resource :users, only: [:edit, :update]
     get 'users/my_page' => 'users#show'
     get '/users/check' => 'users#check'
+    get '/users/likes' => 'users#likes'
     patch '/users/withdraw' => 'users#withdraw'
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:new, :create]
-    resource :likes, only: [:create, :index, :destroy]
+    resource :likes, only: [:create, :destroy]
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'contacts/new' => 'contact#new'

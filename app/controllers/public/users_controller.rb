@@ -22,6 +22,12 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
   
+  def likes
+    @user = User.find(params[:id])
+    likes = Like.where(user_id: current_user.id).pluck(:review_id)
+    @like_list = Review.find(likes)
+  end
+  
   private
   def user_params
     params.require(:user).permit(:image, :name, :email, :gender, :age, :introduction)

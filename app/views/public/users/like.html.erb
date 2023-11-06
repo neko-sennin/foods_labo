@@ -1,0 +1,19 @@
+<div class="container">
+  
+  
+  <div class="row mt-3">
+    <h2>いいね一覧</h2>
+  </div>
+  
+  <div class="row mt-3">
+    <% if @like_list.present? %>
+      <% @like_list.each do |review| %>
+        <%= review.title %>
+        <%= review.comment %>
+        <%= review.intake %>
+        <%= review.intake_amount %>
+      <% end %>
+    <% end %>
+  </div>
+  
+</div>

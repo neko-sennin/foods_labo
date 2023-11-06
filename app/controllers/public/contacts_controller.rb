@@ -26,10 +26,6 @@ class Public::ContactsController < ApplicationController
     end
   end
   
-  def done
-    
-  end
-  
   private
   
   def contact_params

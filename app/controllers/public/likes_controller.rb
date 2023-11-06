@@ -4,20 +4,14 @@ class Public::LikesController < ApplicationController
     review = Review.find(params[:review_id])
     like = current_user.likes.new(review_id: review.id)
     like.save
-    redirect_to review_path(review)
-  end
-  
-  def index
-    @likes = Like.page(params[:page])
-    @likes_all = Like.all
+    redirect_to reviews_path
   end
   
   def destroy
     review = Review.find(params[:review_id])
     like = current_user.likes.find_by(review_id: review.id)
     like.destroy
-    redirect_to review_path(review)
+    redirect_to reviews_path
   end
   
 end
-

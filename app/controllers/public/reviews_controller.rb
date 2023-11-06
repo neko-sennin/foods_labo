@@ -58,7 +58,7 @@ class Public::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
     flash[:success] = "選択された投稿を削除しました"
-    render_to reviews_path
+    redirect_to reviews_path
   end
   
   private

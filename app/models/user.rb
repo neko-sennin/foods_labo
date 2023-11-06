@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :likes
   
-  
   has_one_attached :image
   
   def get_image(width,height)

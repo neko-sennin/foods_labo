@@ -31,7 +31,7 @@
         <th>タグ</th>
         <td>
           <% @review_tags.each do |tag| %>
-            <%= tag.name %>
+            #<%= tag.name %>
           <% end %>
         </td>
       </tr>
@@ -50,6 +50,12 @@
       window.raty(showRateElement, showOpt);
     </script>	
   </div>
+    <p>
+      <% if @review.user == current_user %>
+        <%= link_to "削除", review_path(@review), method: :delete %>
+      <% end %>
+    </p>
+    <p><%#= render "likes", review: @review %></p>
   <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
   <%= link_to "戻る", reviews_path, class: "btn btn-primary" %>
 </div>

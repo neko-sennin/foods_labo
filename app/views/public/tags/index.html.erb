@@ -4,6 +4,22 @@
     <h2>タグ一覧</h2>
   </div>
   
-  
-  
+  <div class="row mt-3">
+    <table>
+      <thead>
+        <tr>
+          <th>タグ名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @tags.each do |tag| %>
+      <tbody>
+        <tr>
+          <td><%= link_to tag.name, edit_admin_tag_path(tag.id), class:"text-dark" %></td>
+          <td></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>

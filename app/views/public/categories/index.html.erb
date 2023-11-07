@@ -4,4 +4,24 @@
     <h2>カテゴリ一覧</h2>
   </div>
   
+  <div class="row mt-3">
+    <table>
+      <thead>
+        <tr>
+          <th>カテゴリ名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <% if category.is_active == true %>　
+          <td><%= link_to category.name,products_path(category_id: category.id), class:"text-dark" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  
 </div>

@@ -55,7 +55,7 @@
                   <%= link_to "マイページ", users_my_page_path, class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
-                  <%= link_to "いいね", users_likes_path, class:"nav-link text-dark" %>
+                  <%= link_to "いいね", user_likes_path(current_user), class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
                   <%= link_to "お問い合せ", new_contact_path, class:"nav-link text-dark" %>

@@ -25,7 +25,11 @@ Rails.application.routes.draw do
     resource :users, only: [:edit, :update]
     get 'users/my_page' => 'users#show'
     get '/users/check' => 'users#check'
-    get '/users/likes' => 'users#likes'
+    
+    resources :users do
+      get '/likes' => 'users#likes'
+    end
+    
     patch '/users/withdraw' => 'users#withdraw'
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]

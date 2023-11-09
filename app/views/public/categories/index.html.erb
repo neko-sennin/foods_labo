@@ -9,18 +9,15 @@
       <thead>
         <tr>
           <th>カテゴリ名</th>
-          <th></th>
         </tr>
       </thead>
-      <tbody>
       <% @categories.each do |category| %>
+      <tbody>
         <tr>
-          
           <td><%= link_to category.name,foods_path(category_id: category.id), class:"text-dark" %></td>
-          
         </tr>
-      <% end %>
       </tbody>
+      <% end %>
     </table>
   </div>
   

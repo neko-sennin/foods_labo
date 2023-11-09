@@ -9,14 +9,12 @@
       <thead>
         <tr>
           <th>タグ名</th>
-          <th></th>
         </tr>
       </thead>
       <% @tags.each do |tag| %>
       <tbody>
         <tr>
-          <td><%= link_to tag.name, reviews_path(tag_id: tag.id), class:"text-dark" %></td>
-          <td></td>
+          <td>#<%= link_to tag.name, reviews_path(tag_id: tag.id), class:"text-dark" %></td>
         </tr>
       </tbody>
       <% end %>

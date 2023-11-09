@@ -23,6 +23,9 @@
           </p>
           <p><%= review.food.name %></p>
           <p class="card-text"><%= review.comment %></p>
+          <% review.tag_ids.each do |tag_id| %>
+            #<%= Tag.find(tag_id).name %>
+          <% end %>
           <span><i class="fas fa-user"></i><%= review.user.name %></span>
           <%= render "likes", review: review %>
         </div>

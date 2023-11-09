@@ -15,7 +15,7 @@
       <% @tags.each do |tag| %>
       <tbody>
         <tr>
-          <td><%= link_to tag.name, edit_admin_tag_path(tag.id), class:"text-dark" %></td>
+          <td><%= link_to tag.name, reviews_path(tag_id: tag.id), class:"text-dark" %></td>
           <td></td>
         </tr>
       </tbody>

@@ -15,9 +15,9 @@
       <tbody>
       <% @categories.each do |category| %>
         <tr>
-          <% if category.is_active == true %>　
-          <td><%= link_to category.name,products_path(category_id: category.id), class:"text-dark" %></td>
-          <% end %>
+          
+          <td><%= link_to category.name,foods_path(category_id: category.id), class:"text-dark" %></td>
+          
         </tr>
       <% end %>
       </tbody>

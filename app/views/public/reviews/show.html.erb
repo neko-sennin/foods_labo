@@ -19,7 +19,6 @@
       </tr>
       <tr>
         <th>期間</th>
-        
         <td><%= @review.period %><%= @review.period_amount_i18n %></td>
       </tr>
       <tr>
@@ -38,27 +37,35 @@
           <% end %>
         </td>
       </tr>
+      <tr>
+        <th>星</th>
+        <td>
+          <div id="show-stars"></div>
+          <script>
+            let showRateElement = document.querySelector('#show-stars');
+            let showOpt = {
+              starOn: "<%= asset_path('star-on.png') %>",
+              starOff: "<%= asset_path('star-off.png') %>",
+              starHalf: "<%= asset_path('star-half.png') %>",
+              scoreName: 'review[star]',
+              score: "<%= @review.star %>",
+              readOnly: true
+              };
+              window.raty(showRateElement, showOpt);
+          </script>
+        </td>
+      </tr>
     </table>
-    <div id="show-stars"></div>
-    <script>
-      let showRateElement = document.querySelector('#show-stars');
-      let showOpt = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'review[star]',
-          score: "<%= @review.star %>",
-          readOnly: true
-      };
-      window.raty(showRateElement, showOpt);
-    </script>	
   </div>
+    
     <p>
       <% if @review.user == current_user %>
         <%= link_to "削除", review_path(@review), method: :delete %>
       <% end %>
     </p>
+    
     <p><%#= render "likes", review: @review %></p>
-  <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
-  <%= link_to "戻る", reviews_path, class: "btn btn-primary" %>
+    <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
+    <%= link_to "戻る", reviews_path, class: "btn btn-primary" %>
+    
 </div>

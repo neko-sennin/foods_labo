@@ -50,20 +50,25 @@
           <% end %>
         </td>
       </tr>
+      <tr>
+        <th><%= f.label "星" %></th>
+        <td>
+          <div id="stars"></div>
+          <script>
+          let elem = document.querySelector('#stars');
+   　　　　   let opt = {
+   　　　　     starOn: "<%= asset_path('star-on.png') %>",
+       　　   starOff: "<%= asset_path('star-off.png') %>",
+       　　   starHalf: "<%= asset_path('star-half.png') %>",
+       　　   scoreName: 'review[star]',
+        　　  score: "<%= @review.star || 0 %>"
+   　　　   };
+   　　　    window.raty(elem, opt);　
+   　　　    </script>
+        </td>
+      </tr>
     </table>
-    <div id="stars"></div>
-    <script>
-      let elem = document.querySelector('#stars');
-      let opt = {
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          scoreName: 'review[star]',
-          score: "<%= @review.star || 0 %>"
-      };
-      window.raty(elem, opt);
-    </script>
-    <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-secondary" %></div>
+    <div class="my-3"><%= f.submit "変更を保存", class: "btn btn-success" %></div>
     <% end %>
   </div>
   

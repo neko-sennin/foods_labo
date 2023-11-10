@@ -41,10 +41,16 @@ class Public::ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    unless @review.id == current_user.id
+      redirect_to reviews_path
+    end
   end
   
   def update
     @review = Review.find(params[:id])
+    unless @review.id == current_user.id
+      redirect_to reviews_path
+    end
     if @review.update(review_params)
       flash.now[:success] = "新規投稿の変更が完了しました"
       redirect_to review_path(@review.id)

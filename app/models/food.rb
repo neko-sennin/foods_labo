@@ -15,4 +15,7 @@ class Food < ApplicationRecord
     image.variant(resize_to_limit: [width,height]).processed
   end
   
+  Food.order("name")
+  Food.order(:name)
+  
 end

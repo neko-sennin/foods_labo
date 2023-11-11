@@ -5,7 +5,8 @@ class Public::FoodsController < ApplicationController
     if params[:category_id].present?
       @foods = @foods.where(category_id: params[:category_id]) 
     end
-    @foods.page(params[:page])
+    @foods = @foods.sort_by { |f| f.review_average_score }.reverse
+    @foods = Kaminari.paginate_array(@foods).page(params[:page])
   end
 
   def show

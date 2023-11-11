@@ -15,7 +15,11 @@ class Food < ApplicationRecord
     image.variant(resize_to_limit: [width,height]).processed
   end
   
-  Food.order("name")
-  Food.order(:name)
+  def review_average_score
+    reviews.average(:star).to_f.round(1)
+  end
+  
+  # ood.order("name")
+  # Food.order(:name)F
   
 end

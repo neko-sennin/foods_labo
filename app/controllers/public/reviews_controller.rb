@@ -17,21 +17,14 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.page(params[:page])
-    @reviews_all = Review.all
-    if params[:new_review]
-      @reviews = Review.new_review
-    elsif params[:old_review]
-      @reviews = Review.old_review
-    else
-      @reviews = params[:tag_id].present? ? Tag.find(params[:tag_id]).reviews : Review.all
-    end
-    if params[:keyword]
-      @reviews = @reviews.search(params[:keyword]).page(params[:page])
-    else
-      @reviews = @reviews.page(params[:page])
-    end
-    @keyword = params[:keyword]
+    @reviews =
+      if params[:tag_id].present?
+        Tag.find(params[:tag_id]).reviews
+      else
+        Review.all
+      end
+    @reviews = @reviews.search(params[:keyword]) if params[:keyword]
+    @reviews = @reviews.order(created_at: :desc).page(params[:page])
   end
 
   def show

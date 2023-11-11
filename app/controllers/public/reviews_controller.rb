@@ -41,14 +41,14 @@ class Public::ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
-    unless @review.id == current_user.id
+    unless @review.user_id == current_user.id
       redirect_to reviews_path
     end
   end
   
   def update
     @review = Review.find(params[:id])
-    unless @review.id == current_user.id
+    unless @review.user_id == current_user.id
       redirect_to reviews_path
     end
     if @review.update(review_params)

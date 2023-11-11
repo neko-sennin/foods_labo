@@ -64,8 +64,10 @@
       <% end %>
     </p>
     
-    <p><%#= render "likes", review: @review %></p>
-    <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
+    <p><%= render "likes", review: @review %></p>
+    <% if @review.user == current_user %>
+      <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
+    <% end %>
     <%= link_to "戻る", reviews_path, class: "btn btn-primary" %>
     
 </div>

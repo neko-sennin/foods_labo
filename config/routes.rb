@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get '/likes' => 'users#likes'
     end
     
-    patch '/users/withdraw' => 'users#withdraw'
+    post '/users/withdraw' => 'users#withdraw'
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:new, :create]

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :tags, only: [:create,:index, :edit, :update, :destroy]
     resources :categories, only: [:create,:index, :edit, :update, :destroy]
     resources :ingredients, only: [:create, :index, :edit, :update, :destroy]
-    resources :contacts, only: [:index, :show] 
+    resources :contacts, only: [:index, :show, :edit, :update, :destroy] 
   end
   
   scope module: :public do

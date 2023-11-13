@@ -19,7 +19,4 @@ class Food < ApplicationRecord
     reviews.average(:star).to_f.round(1)
   end
   
-  # ood.order("name")
-  # Food.order(:name)F
-  
 end

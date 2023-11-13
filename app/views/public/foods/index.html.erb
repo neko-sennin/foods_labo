@@ -1,7 +1,7 @@
 <div class="container">
   
   <div class="row mt-3">
-    <h2>食材一覧</h2>
+    <h2>食材ランキング</h2>
   </div>
   
   <div class="row mt-3" id="food_list">
@@ -13,7 +13,7 @@
         <% end %>
         <div id="food_id_<%= food.id %>" data-score=<%= food.review_average_score %>>
         </div>
-        (<%= food.review_average_score %>)
+        <%= food.review_average_score %>
       </div>
     <% end %>
   </div>

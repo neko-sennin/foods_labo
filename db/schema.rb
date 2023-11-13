@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2023_10_30_063213) do
     t.integer "user_id", null: false
     t.string "subject", null: false
     t.text "message", null: false
+    t.text "reply"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

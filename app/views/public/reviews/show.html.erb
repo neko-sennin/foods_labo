@@ -58,15 +58,13 @@
     </table>
   </div>
     
-    <p>
-      <% if @review.user == current_user %>
-        <%= link_to "削除", review_path(@review), method: :delete %>
-      <% end %>
-    </p>
-    
     <p><%= render "likes", review: @review %></p>
+    
     <% if @review.user == current_user %>
       <%= link_to "編集する", edit_review_path(@review.id), class: "btn btn-success" %>
+    <% end %>
+    <% if @review.user == current_user %>
+      <%= link_to "削除", review_path(@review), method: :delete, class: "btn btn-danger" %>
     <% end %>
     <%= link_to "戻る", reviews_path, class: "btn btn-primary" %>
     

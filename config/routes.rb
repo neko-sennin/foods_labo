@@ -24,10 +24,11 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     resource :users, only: [:edit, :update]
     resource :likes, only: [:create, :destroy]
-    
     get 'users/my_page' => 'users#show'
     get '/users/check' => 'users#check'
     post '/users/withdraw' => 'users#withdraw'
+    
+     get 'reviews/list' => 'reviews#list'
     
     resources :users do
       get '/likes' => 'users#likes'
@@ -43,7 +44,6 @@ Rails.application.routes.draw do
     get 'categories/index' => 'categories#index'
     get 'ingredients/index' => 'ingredients#index'
     get "search" => "reviews#search"
-    get 'reviews/ranking' => 'reviews#ranking'
   end
   
   

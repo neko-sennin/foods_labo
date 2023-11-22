@@ -24,8 +24,8 @@ class Public::ReviewsController < ApplicationController
         Review.all
       end
     @reviews = @reviews.search(params[:keyword]) if params[:keyword]
-    @reviews = @reviews.order(created_at: :desc).page(params[:page])
-    # @reviews = @reviews.order(params[:sort])
+    #@reviews = @reviews.order(created_at: :desc).page(params[:page])
+    @reviews = @reviews.order(params[:sort])
   end
 
   def show
@@ -61,12 +61,15 @@ class Public::ReviewsController < ApplicationController
     redirect_to reviews_path
   end
   
-  def ranking
-    @review = review.find(params[:review_id])
-    food = Food.where(food.id).pluck(:review_id)
-    @review_list = Review.find(food)
-    @events = @q.result(distinct: true).paginate(page: params[:page]).where(user_id: @user.id)
-    @reviews = User.posts.order("created_at DESC").page(params[:page]).per(5)
+  def list
+    @reviews = Review.where(user_id: current_user.id)
+    # @review = Review.find(params[:user_id])
+    # posts = Post.where(user_id: current_user.id).pluck(:review_id)
+    # @review_list = Review.find(posts)
+    # food = Food.where(food.id).pluck(:review_id)
+    # @review_list = Review.find(food)
+    # @events = @q.result(distinct: true).paginate(page: params[:page]).where(user_id: @user.id)
+    # @reviews = User.posts.order("created_at DESC").page(params[:page]).per(5)
   end
   
   private

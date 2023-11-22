@@ -24,7 +24,8 @@ class Public::ReviewsController < ApplicationController
         Review.all
       end
     @reviews = @reviews.search(params[:keyword]) if params[:keyword]
-    @reviews = @reviews.order(params[:sort])
+    @reviews = @reviews.order(created_at: :desc).page(params[:page])
+    # @reviews = @reviews.order(params[:sort])
   end
 
   def show
@@ -65,7 +66,7 @@ class Public::ReviewsController < ApplicationController
     food = Food.where(food.id).pluck(:review_id)
     @review_list = Review.find(food)
     @events = @q.result(distinct: true).paginate(page: params[:page]).where(user_id: @user.id)
-    @reviews = Review.posts.order("created_at DESC").page(params[:page]).per(5)
+    @reviews = User.posts.order("created_at DESC").page(params[:page]).per(5)
   end
   
   private

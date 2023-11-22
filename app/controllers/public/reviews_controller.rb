@@ -60,6 +60,14 @@ class Public::ReviewsController < ApplicationController
     redirect_to reviews_path
   end
   
+  def ranking
+    @review = review.find(params[:review_id])
+    food = Food.where(food.id).pluck(:review_id)
+    @review_list = Review.find(food)
+    @events = @q.result(distinct: true).paginate(page: params[:page]).where(user_id: @user.id)
+    @reviews = Review.posts.order("created_at DESC").page(params[:page]).per(5)
+  end
+  
   private
   def review_params
     params.require(:review).permit(:user_id, :food_id, :title, :period, :period_amount, :intake, :intake_amount, :comment, :star, { tag_ids: [] })

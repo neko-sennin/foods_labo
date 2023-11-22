@@ -23,26 +23,27 @@ Rails.application.routes.draw do
     root 'homes#top'
     get '/about' => 'homes#about'
     resource :users, only: [:edit, :update]
+    resource :likes, only: [:create, :destroy]
+    
     get 'users/my_page' => 'users#show'
     get '/users/check' => 'users#check'
+    post '/users/withdraw' => 'users#withdraw'
     
     resources :users do
       get '/likes' => 'users#likes'
     end
     
-    post '/users/withdraw' => 'users#withdraw'
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:new, :create]
-    resource :likes, only: [:create, :destroy]
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
     post 'contacts/back', to: 'contacts#back', as: 'back'
-    get 'contacts/new' => 'contact#new'
     get 'done', to: 'contacts#done', as: 'done'
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'
     get 'ingredients/index' => 'ingredients#index'
     get "search" => "reviews#search"
+    get 'reviews/ranking' => 'reviews#ranking'
   end
   
   

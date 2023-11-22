@@ -11,6 +11,7 @@ class Public::FoodsController < ApplicationController
 
   def show
     @food = Food.find(params[:id])
+    #@food = @food.sort_by { |f| f.review_average_score }.reverse
     @food_ingredients = @food.ingredients
   end
   

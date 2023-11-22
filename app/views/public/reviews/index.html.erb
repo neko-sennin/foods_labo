@@ -9,6 +9,11 @@
   </div>
   
   <div class="row mt-3 d-flex flex-column" id="review_list">
+    <div class="mx-auto">
+      <%= link_to "新しい順", reviews_path(sort: 'created_at DESC') %> | 
+      <%= link_to "古い順", reviews_path(sort: 'created_at ASC') %> | 
+      <%= link_to "評価の高い順", reviews_path(sort: 'star DESC') %>
+    </div>
     <% @reviews.each do |review| %>
       <div class="card w-50 mx-auto mt-4 shadow-lg">
         <div class="card-body">
@@ -25,7 +30,7 @@
               <p class="card-text"><%= review.comment %></p>
               <% review.tag_ids.each do |tag_id| %>
                 #<%= Tag.find(tag_id).name %>
-              <% end %>
+              <% end %><br>
               <span><i class="fas fa-user"></i><%= review.user.name %></span>
               <%= render "likes", review: review %>
             </div>
@@ -36,7 +41,7 @@
       </div>
     <% end %>
   </div>
-  <div id="show-stars"></div>
+  <div id="stars"></div>
   <script>
       const reviewList = document.getElementById('review_list')
       const score_option = {
@@ -53,6 +58,6 @@
       }
   </script>
   
-  <%= paginate @reviews %>
+  <%#= paginate @reviews %>
   
 </div>

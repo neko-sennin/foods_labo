@@ -14,7 +14,7 @@
       <% @categories.each do |category| %>
       <tbody>
         <tr>
-          <td><%= link_to category.name,foods_path(category_id: category.id), class:"text-dark" %></td>
+          <td>・<%= link_to category.name,foods_path(category_id: category.id), class:"text-dark" %></td>
         </tr>
       </tbody>
       <% end %>

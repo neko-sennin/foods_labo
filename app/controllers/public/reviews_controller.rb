@@ -24,7 +24,7 @@ class Public::ReviewsController < ApplicationController
         Review.all
       end
     @reviews = @reviews.search(params[:keyword]) if params[:keyword]
-    @reviews = @reviews.order(created_at: :desc).page(params[:page])
+    @reviews = @reviews.order(params[:sort])
   end
 
   def show

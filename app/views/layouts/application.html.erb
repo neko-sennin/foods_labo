@@ -52,13 +52,10 @@
                 </li>
               <% elsif user_signed_in? %>
                 <li class="nav-link">
-                  <%= link_to "ホーム", root_path, class:"nav-link text-dark" %>
+                  <%= link_to "マイページ", users_my_page_path, class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
                   <%= link_to "新規投稿", new_review_path, class:"nav-link text-dark" %>
-                </li>
-                <li class="nav-link">
-                  <%= link_to "マイページ", users_my_page_path, class:"nav-link text-dark" %>
                 </li>
                 <li class="nav-link">
                   <%= link_to "いいね", user_likes_path(current_user), class:"nav-link text-dark" %>

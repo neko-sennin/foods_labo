@@ -3,3 +3,7 @@
 <% elsif flash[:alert] %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+
+<% flash.each do |message_type, message| %>
+  <div><%= message %></div>
+<% end %>

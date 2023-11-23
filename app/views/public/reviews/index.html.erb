@@ -1,9 +1,5 @@
 <div class="container">
   
-  <% flash.each do |message_type, message| %>
-    <div><%= message %></div>
-  <% end %>
-  
   <div class="mx-auto mt-3">
     <%= render "search", review: @review %>
   </div>

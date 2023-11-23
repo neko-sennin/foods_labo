@@ -8,7 +8,7 @@
     <h2>投稿一覧</h2>
   </div>
   
-  <div class="mx-auto">
+  <div class="mx-auto text-center">
       <%= link_to "新しい順", reviews_path(sort: 'created_at DESC') %> | 
       <%= link_to "古い順", reviews_path(sort: 'created_at ASC') %> | 
       <%= link_to "評価の高い順", reviews_path(sort: 'star DESC') %>
@@ -59,6 +59,6 @@
       }
   </script>
   
-  <%#= paginate @reviews %>
+  <%= paginate @reviews %>
   
 </div>

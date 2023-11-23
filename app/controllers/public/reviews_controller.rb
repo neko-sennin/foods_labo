@@ -7,7 +7,7 @@ class Public::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    if @review.save!
+    if @review.save
       flash[:notice] = "新規投稿が完了しました"
       redirect_to review_path(@review.id)
     else
@@ -18,16 +18,21 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @reviews =
-      if params[:tag_id].present?
-        Tag.find(params[:tag_id]).reviews
-      elsif params[:food_id].present?
+      # if params[:tag_id].present? && params[:food_id].present?
+      #   Review.all
+      #   food_reviews = Food.find(params[:food_id]).reviews
+      #   tag_reviews = Tag.find(params[:tag_id]).reviews
+      #   food_reviews + tag_reviews
+      if params[:food_id].present?
         Food.find(params[:food_id]).reviews
+      elsif params[:tag_id].present?
+        Tag.find(params[:tag_id]).reviews
       else
         Review.all
       end
     @reviews = @reviews.search(params[:keyword]) if params[:keyword]
-    #@reviews = @reviews.order(created_at: :desc).page(params[:page])
     @reviews = @reviews.order(params[:sort])
+    @reviews = @reviews.order(created_at: :desc).page(params[:page])
   end
 
   def show

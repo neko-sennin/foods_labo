@@ -1,6 +1,7 @@
 class Admin::TagsController < ApplicationController
   
   def create
+    @tags = Tag.page(params[:page])
     @tag = Tag.new(tag_params)
     if @tag.save
       flash[:notice] = "タグの登録が完了しました"

@@ -9,7 +9,7 @@
       <div>
         <p><%= food.name %></p>
         <%= link_to food_path(food.id) do %>
-          <%= image_tag food.get_image(100,100) %>
+          <%= image_tag food.get_image(100,100), style: "object-fit: cover;"  %>
         <% end %>
         <div id="food_id_<%= food.id %>" data-score=<%= food.review_average_score %>>
         </div>

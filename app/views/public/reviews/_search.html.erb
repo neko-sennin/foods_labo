@@ -17,7 +17,7 @@
           }
       %>
       <%= select_tag :food_id,
-        options_from_collection_for_select(Food.all, :id, :name, params[:Food_id]),
+        options_from_collection_for_select(Food.all, :id, :name, params[:food_id]),
           {
             prompt: "食材で絞り込み検索",
             onchange: "submit(this.form);"

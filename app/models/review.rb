@@ -6,7 +6,6 @@ class Review < ApplicationRecord
   has_many :review_tags
   has_many :tags, through: :review_tags
   
-  validates :food_id, presence: true
 	validates :title, presence: true
 	validates :comment, presence: true
 	validates :star, presence: true

@@ -20,6 +20,8 @@ class Public::ReviewsController < ApplicationController
     @reviews =
       if params[:tag_id].present?
         Tag.find(params[:tag_id]).reviews
+      elsif params[:food_id].present?
+        Food.find(params[:food_id]).reviews
       else
         Review.all
       end

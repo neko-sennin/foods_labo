@@ -6,6 +6,11 @@ class Review < ApplicationRecord
   has_many :review_tags
   has_many :tags, through: :review_tags
   
+  validates :food_id, presence: true
+	validates :title, presence: true
+	validates :comment, presence: true
+	validates :star, presence: true
+  
   enum period_amount: { unentered: 0, date: 1, week: 2, month: 3, year: 4 }, _prefix: true
   enum intake_amount: { unentered: 0, piece: 1, gram: 2, liter: 3 }, _prefix: true
   

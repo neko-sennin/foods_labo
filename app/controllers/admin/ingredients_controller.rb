@@ -1,12 +1,12 @@
 class Admin::IngredientsController < ApplicationController
   
   def create
+    @ingredients = Ingredient.page(params[:page])
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
       flash[:notice] = "成分の登録が完了しました"
       redirect_to admin_ingredients_path
     else
-      flash.now[:alert] = "成分の新規登録内容に不備があります"
       render :index
     end
   end
@@ -27,7 +27,6 @@ class Admin::IngredientsController < ApplicationController
       flash.now[:success] = "成分詳細の変更が完了しました"
       redirect_to admin_ingredients_path
     else
-      flash.now[:danger] = "成分詳細の変更内容に不備があります"
       render :edit
     end
   end

@@ -1,12 +1,12 @@
 class Admin::CategoriesController < ApplicationController
   
   def create
+    @categories = Category.page(params[:page])
     @category = Category.new(category_params)
     if @category.save
       flash[:notice] = "カテゴリの登録が完了しました"
       redirect_to admin_categories_path
     else
-      flash.now[:alert] = "カテゴリの新規登録内容に不備があります"
       render :index
     end
   end
@@ -27,7 +27,6 @@ class Admin::CategoriesController < ApplicationController
       flash.now[:success] = "カテゴリ詳細の変更が完了しました"
       redirect_to admin_categories_path
     else
-      flash.now[:danger] = "カテゴリ詳細の変更内容に不備があります"
       render :edit
     end
   end

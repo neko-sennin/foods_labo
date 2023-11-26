@@ -4,6 +4,13 @@
     <h2>食材新規登録</h2>
   </div>
   
+  <% if @food.errors.any? %>
+    <%= @food.errors.count %>件のエラーが発生しました。
+    <% @food.errors.full_messages.each do |message| %>
+      <%= message %>。
+    <% end %>
+  <% end %>
+  
   <div class="mx-auto mt-3">
     <%= form_with model: @food, url: admin_foods_path, local: true do |f| %>
     <table>
@@ -28,8 +35,9 @@
         </td>
       </tr>
     </table>
-    <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-secondary" %></div>
+    <div class="my-3"><%= f.submit "変更を保存", class:"btn btn-success" %></div>
     <% end %>
   </div>
   
 </div>
+

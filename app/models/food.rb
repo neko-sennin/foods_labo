@@ -5,7 +5,6 @@ class Food < ApplicationRecord
   has_many :food_ingredients
   has_many :ingredients, through: :food_ingredients
   
-  validates :category_id, presence: true
 	validates :name, presence: true
   
   has_one_attached :image

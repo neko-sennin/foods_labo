@@ -19,9 +19,9 @@
   
   <%= form_for @contact, url: confirm_path do |f| %>
     <%= f.hidden_field :user_id, value:current_user.id %>
-    <%= f.label :タイトル %>
+    <%= f.label :件名 %>
       <%= f.text_field :subject, class:"form-control" %>
-    <%= f.label :内容 %>
+    <%= f.label :お問い合わせ内容 %>
       <%= f.text_area :message, class:"form-control" %>
     <div class="row mt-3 ml-1">
       <%= f.submit "入力内容確認", class: "btn btn-success"  %>

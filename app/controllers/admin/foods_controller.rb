@@ -10,7 +10,6 @@ class Admin::FoodsController < ApplicationController
       flash[:notice] = "食材の新規登録が完了しました"
       redirect_to admin_food_path(@food.id)
     else
-      flash.now[:alert] = "食材の新規登録内容に不備があります"
       render :new
     end
   end
@@ -35,7 +34,6 @@ class Admin::FoodsController < ApplicationController
       flash.now[:success] = "食材詳細の変更が完了しました"
       redirect_to admin_food_path(@food.id)
     else
-      flash.now[:danger] = "食材詳細の変更内容に不備があります"
       render :edit
     end
   end

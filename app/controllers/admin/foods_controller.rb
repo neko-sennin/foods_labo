@@ -42,7 +42,7 @@ class Admin::FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
     flash[:success] = "選択された食材を削除しました"
-    redirect_to admim_foods_path
+    redirect_to admin_foods_path
   end
   
   private

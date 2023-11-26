@@ -6,19 +6,20 @@
   	<table>
   	  <thead>
   	  	<tr>
+  	  	  <th>受信日時</th>
   	  	  <th>名前</th>
   	  	  <th>件名</th>
-  	  	  <th>受信日時</th>
   	  	</tr>
   	  </thead>
   	  <tbody>
   	  	<% @contacts.each do |contact| %>
   	      <tr>
+  	        <td><%= contact.created_at.strftime('%Y/%m/%d %H:%M') %></td>
   	      	<td><%= contact.user.name %></td>
 	        <td><%= contact.subject %></td>
-	        <td><%= contact.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-	        <td><%= link_to "返信", edit_admin_contact_path(contact) %></td>
-	        <td><%= link_to "削除", admin_contact_path(contact), method: :delete %></td>
+	        <td><%= link_to "返信", edit_admin_contact_path(contact), class:"btn btn-success" %></td>
+	        <td><%= link_to "詳細", admin_contact_path(contact), class:"btn btn-primary" %></td>
+	        <td><%= link_to "削除", admin_contact_path(contact), method: :delete, class:"btn btn-danger" %></td>
   	      </tr>
   	    <% end %>
   	  </tbody>

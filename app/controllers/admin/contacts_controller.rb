@@ -4,6 +4,10 @@ class Admin::ContactsController < ApplicationController
 	  @contacts = Contact.page(params[:page]).order(created_at: :desc).per(16)
 	end
 	
+	def show
+		@contact = Contact.find(params[:id])
+	end
+	
 	def edit
 		@contact = Contact.find(params[:id])
 	end

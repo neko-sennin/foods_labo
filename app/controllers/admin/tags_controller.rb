@@ -4,10 +4,9 @@ class Admin::TagsController < ApplicationController
     @tags = Tag.page(params[:page])
     @tag = Tag.new(tag_params)
     if @tag.save
-      flash[:notice] = "タグの登録が完了しました"
-      redirect_to admin_tags_path
+      redirect_to admin_tags_path, flash: {success: "タグの登録が完了しました。"}
     else
-      flash.now[:alert] = "タグの新規登録内容に不備があります"
+      flash.now[:danger] = "タグの新規登録内容に不備があります。"
       render :index
     end
   end
@@ -25,10 +24,9 @@ class Admin::TagsController < ApplicationController
   def update
     @tag = Tag.find(params[:id])
     if @tag.update(tag_params)
-      flash.now[:success] = "タグ詳細の変更が完了しました"
-      redirect_to admin_tags_path
+      redirect_to admin_tags_path, flash: {success: "タグの変更が完了しました。"}
     else
-      flash.now[:danger] = "タグ詳細の変更内容に不備があります"
+      flash.now[:danger] = "タグの変更内容に不備があります。"
       render :edit
     end
   end
@@ -36,7 +34,7 @@ class Admin::TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
-    flash[:success] = "選択されたタグを削除しました"
+    flash[:success] = "選択されたタグを削除しました。"
     redirect_to admin_tags_path
   end
   

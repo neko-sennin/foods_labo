@@ -35,7 +35,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     flash[:success] = "選択されたカテゴリを削除しました"
-    redirect_to admim_categories_path
+    redirect_to admin_categories_path
   end
   
   private

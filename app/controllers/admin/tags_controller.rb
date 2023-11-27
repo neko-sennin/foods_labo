@@ -37,7 +37,7 @@ class Admin::TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     @tag.destroy
     flash[:success] = "選択されたタグを削除しました"
-    redirect_to admim_tags_path
+    redirect_to admin_tags_path
   end
   
   private

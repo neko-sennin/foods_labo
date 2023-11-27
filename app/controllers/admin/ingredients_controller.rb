@@ -35,7 +35,7 @@ class Admin::IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
     @ingredient.destroy
     flash[:success] = "選択された成分を削除しました"
-    redirect_to admim_ingredients_path
+    redirect_to admin_ingredients_path
   end
   
   private

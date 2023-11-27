@@ -1,17 +1,12 @@
 <div class="container">
   
+  <%= render partial: 'layouts/flash' %>
+  
   <div class="row mt-3">
     <h2>成分一覧</h2>
   </div>
   
-  <% if @ingredient.errors.any? %>
-    <%= @ingredient.errors.count %>件のエラーが発生しました。
-    <% @ingredient.errors.full_messages.each do |message| %>
-      <%= message %>。
-    <% end %>
-  <% end %>
-  
-  <div class="row mt-3">
+  <div class="row mt-1">
     <table>
       <thead>
         <tr>
@@ -34,7 +29,7 @@
     <h2>成分新規登録</h2>
   </div>
   
-  <div class="row mt-3">
+  <div class="row mt-1">
     <%= form_with model: @ingredient, url: admin_ingredients_path, local: true do |f| %>
     <table>
       <tr>

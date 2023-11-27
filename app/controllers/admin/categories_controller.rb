@@ -4,9 +4,9 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.page(params[:page])
     @category = Category.new(category_params)
     if @category.save
-      flash[:notice] = "カテゴリの登録が完了しました"
-      redirect_to admin_categories_path
+      redirect_to admin_categories_path, flash: {success: "カテゴリの登録が完了しました。"}
     else
+      flash.now[:danger] = "カテゴリの新規登録内容に不備があります。"
       render :index
     end
   end
@@ -24,9 +24,9 @@ class Admin::CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      flash.now[:success] = "カテゴリ詳細の変更が完了しました"
-      redirect_to admin_categories_path
+      redirect_to admin_categories_path, flash: {success: "カテゴリの変更が完了しました。"}
     else
+      flash.now[:danger] = "カテゴリの変更内容に不備があります。"
       render :edit
     end
   end
@@ -34,7 +34,7 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:success] = "選択されたカテゴリを削除しました"
+    flash[:success] = "選択されたカテゴリを削除しました。"
     redirect_to admin_categories_path
   end
   

@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :food
   has_many :likes, dependent: :destroy
-  has_many :review_tags
+  has_many :review_tags, dependent: :destroy
   has_many :tags, through: :review_tags
   
 	validates :title, presence: true

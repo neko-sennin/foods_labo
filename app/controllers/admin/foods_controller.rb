@@ -7,7 +7,7 @@ class Admin::FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      flash[:notice] = "食材の新規登録が完了しました"
+      flash[:success] = "食材の新規登録が完了しました"
       redirect_to admin_food_path(@food.id)
     else
       render :new

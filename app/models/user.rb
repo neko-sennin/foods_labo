@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   
-  has_many :reviews
-  has_many :likes
+  has_many :reviews, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :contact, dependent: :destroy
   
   has_one_attached :image

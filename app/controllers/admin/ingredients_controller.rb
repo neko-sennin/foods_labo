@@ -4,7 +4,7 @@ class Admin::IngredientsController < ApplicationController
     @ingredients = Ingredient.page(params[:page])
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      flash[:notice] = "成分の登録が完了しました"
+      flash[:success] = "成分の登録が完了しました"
       redirect_to admin_ingredients_path
     else
       render :index

@@ -9,7 +9,7 @@ class ContactMailer < ApplicationMailer
   def contact_mail(contact, user)
     @contact = contact
     @user = user
-    mail(to: ENV['SMTP_USERNAME'], subject: 'Webサイトよりお問い合わせが届きました')
+    mail(to: ENV['SMTP_USERNAME'], subject: 'Webサイトよりお問い合せが届きました')
   end
   
   def reply_mail(contact, user)

@@ -1,12 +1,5 @@
 <div class="container">
   
-  <% if @contact.errors.any? %>
-    <%= @contact.errors.count %>件のエラー。
-    <% @contact.errors.full_messages.each do |message| %>
-      <%= message %>。
-    <% end %>
-  <% end %>
-  
   <%= render partial: 'layouts/flash' %>
   
   <h2 class="contact-title mt-3">お問い合わせフォーム</h2>

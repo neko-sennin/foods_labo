@@ -16,13 +16,14 @@ class Admin::ContactsController < ApplicationController
 	  contact = Contact.find(params[:id]) #contact_mailer.rbの引数を指定
 	  contact.update(contact_params)
 	  user = contact.user
-	  ContactMailer.reply_mail(user, contact).deliver_now #確認メールを送信
+	  ContactMailer.reply_mail(contact, user).deliver_now #確認メールを送信
 	  redirect_to root_path, flash: {success: "返信が完了しました。"}
 	end
 
 	def destroy
 		contact = Contact.find(params[:id])
 		contact.destroy
+		flash[:success] = "選択されたお問い合せを削除しました。"
 		@contacts = Contact.page(params[:page]).order(created_at: :desc).per(16)
 		@users = User.all
 		render :index

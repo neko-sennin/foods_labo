@@ -1,8 +1,8 @@
 class Food < ApplicationRecord
   
   belongs_to :category
-  has_many :reviews
-  has_many :food_ingredients
+  has_many :reviews, dependent: :destroy
+  has_many :food_ingredients, dependent: :destroy
   has_many :ingredients, through: :food_ingredients
   
 	validates :name, presence: true

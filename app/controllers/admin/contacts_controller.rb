@@ -16,8 +16,8 @@ class Admin::ContactsController < ApplicationController
 	  contact = Contact.find(params[:id]) #contact_mailer.rbの引数を指定
 	  contact.update(contact_params)
 	  user = contact.user
-	  ContactMailer.send_when_admin_reply(user, contact).deliver_now #確認メールを送信
-	  redirect_to root_path
+	  ContactMailer.reply_mail(user, contact).deliver_now #確認メールを送信
+	  redirect_to root_path, flash: {success: "返信が完了しました。"}
 	end
 
 	def destroy

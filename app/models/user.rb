@@ -6,6 +6,11 @@ class User < ApplicationRecord
   
   has_one_attached :image
   
+  validates :name, presence: true
+	validates :email, presence: true
+	validates :gender, presence: true
+	validates :age, presence: true
+  
   def get_image(width,height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

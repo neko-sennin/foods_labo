@@ -4,13 +4,6 @@
     <h2>新規投稿</h2>
   </div>
   
-  <% if @review.errors.any? %>
-    <%= @review.errors.count %>件のエラー。
-    <% @review.errors.full_messages.each do |message| %>
-      <%= message %>。
-    <% end %>
-  <% end %>
-  
   <div class="mx-auto mt-3">
     <%= form_with model: @review, url: reviews_path, local: true do |f| %>
     <table>

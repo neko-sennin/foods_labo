@@ -6,9 +6,7 @@
   
   <div class="row mt-3">
     <table>
-      <tr>
-        <%= image_tag @food.get_image(200,200) %>
-      </tr>
+      <tr><%= image_tag @food.get_image(200,200) %></tr>
       <tr>
         <th>食材名</th>
         <td><%= @food.name %></td>
@@ -47,9 +45,7 @@
           </script>
         </td>
       </tr>
-      <tr>
-        <th><%= link_to "戻る", foods_path, class: "btn btn-primary" %></th>
-      </tr>
+      <tr><th><%= link_to "戻る", foods_path, class: "btn btn-primary" %></th></tr>
     </table>
   </div>
   

@@ -11,8 +11,7 @@
         <%= link_to food_path(food.id) do %>
           <%= image_tag food.get_image(100,100) %>
         <% end %>
-        <div id="food_id_<%= food.id %>" data-score=<%= food.review_average_score %>>
-        </div>
+        <div id="food_id_<%= food.id %>" data-score=<%= food.review_average_score %>></div>
         <%= food.review_average_score %>
       </div>
     <% end %>

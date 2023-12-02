@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:create,:index, :edit, :update, :destroy]
     resources :ingredients, only: [:create, :index, :edit, :update, :destroy]
     resources :contacts, only: [:index, :show, :edit, :update, :destroy] 
+    resources :reviews, only: [:index, :show, :edit, :update, :destroy] 
   end
   
   scope module: :public do
@@ -27,13 +28,13 @@ Rails.application.routes.draw do
     get 'users/my_page' => 'users#show'
     get '/users/check' => 'users#check'
     post '/users/withdraw' => 'users#withdraw'
-    
-     get 'reviews/list' => 'reviews#list'
+    get 'reviews/list' => 'reviews#list'
     
     resources :users do
       get '/likes' => 'users#likes'
     end
     
+    resources :ranks, only: [:index, :show]
     resources :foods, only: [:index, :show]
     resources :reviews, only: [:new, :create, :index, :show, :edit, :update, :destroy]
     resources :contacts, only: [:new, :create]
@@ -43,9 +44,8 @@ Rails.application.routes.draw do
     get 'tags/index' => 'tags#index'
     get 'categories/index' => 'categories#index'
     get 'ingredients/index' => 'ingredients#index'
-    get "search" => "reviews#search"
+    get 'search' => 'reviews#search'
   end
-  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

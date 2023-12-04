@@ -1,10 +1,11 @@
 class Public::RanksController < ApplicationController
   
-  def show
+  def index
     
+    @tags = Tag.all
   end
 
-  def index
+  def show
     
   end
   

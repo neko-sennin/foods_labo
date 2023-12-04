@@ -1,2 +1,38 @@
-<h1>Public::Ranks#index</h1>
-<p>Find me in app/views/public/ranks/index.html.erb</p>
+<div class="container">
+  
+  <div class="row mt-3">
+    <h2>ランキング</h2>
+  </div>
+  
+  <% @tags.each do |tag| %>
+    <h2><%= tag.name %></h2>
+      <div class="row mt-3" id="food_list_<%= tag.id %>">
+      <% tag.ranking_hash.each do |key,value| %>
+        <% food = Food.find(key) %>
+        <div class="food_item">
+          <p><%= food.name %></p>
+          <%= link_to food_path(food.id) do %>
+            <%= image_tag food.get_image(100,100) %>
+          <% end %>
+          <div id="food_id_<%= tag.id %>_<%= food.id %>" data-score=<%= value %>></div>
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+    <script>
+        const foodList_<%= tag.id %> = document.getElementById('food_list_<%= tag.id %>')
+        const score_option_<%= tag.id %> = {
+          size: 36,
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          half: true,
+          readOnly: true,
+        };
+        for (let i = 0; i < foodList_<%= tag.id %>.children.length; i++) {
+          let foodScore = document.querySelector('#' + foodList_<%= tag.id %>.children[i].lastElementChild.id);
+          raty(foodScore, score_option_<%= tag.id %>);
+        }
+    </script>
+  <% end %>
+</div>

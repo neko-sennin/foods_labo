@@ -1,2 +1,43 @@
-<h1>Public::Ranks#show</h1>
-<p>Find me in app/views/public/ranks/show.html.erb</p>
+<div class="container">
+  
+  <div class="row mt-3">
+    <h2><%= @tag.name %>ランキング</h2>
+  </div>
+  
+    <div class="row mt-3" id="food_list_<%= @tag.id %>">
+      <% @tag.ranking_hash.each.with_index do |(key, value), i| %>
+        <% food = Food.find(key) %>
+        <div>
+          <p><%= i + 1 %>位<%= food.name %></p>
+          <p><%= image_tag food.get_image(100,100),class: 'food_item' %></p>
+          <div id="food_id_<%= @tag.id %>_<%= food.id %>" data-score=<%= value %>></div>
+          <%= value %>
+        </div>
+      <% end %>
+      <% not_ranks = Food.pluck(:id) - @tag.reviews.pluck(:food_id) %>
+      <% not_ranks.each_with_index do |value, i| %>
+        <% food = Food.find(value) %>
+        <div>
+          <p>...位<%= food.name %></p>
+          <p><%= image_tag food.get_image(100,100),class: 'food_item'  %></p>
+          <div id="food_id_<%= @tag.id %>_<%= food.id %>" data-score= 0 ></div>
+          0
+        </div>
+      <% end %>
+    </div>
+    <script>
+        const foodList_<%= @tag.id %> = document.getElementById('food_list_<%= @tag.id %>')
+        const score_option_<%= @tag.id %> = {
+          size: 36,
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          half: true,
+          readOnly: true,
+        };
+        for (let i = 0; i < foodList_<%= @tag.id %>.children.length; i++) {
+          let foodScore = document.querySelector('#' + foodList_<%= @tag.id %>.children[i].lastElementChild.id);
+          raty(foodScore, score_option_<%= @tag.id %>);
+        }
+    </script>
+</div>

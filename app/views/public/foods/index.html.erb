@@ -6,10 +6,10 @@
   
   <div class="row mt-3" id="food_list">
     <% @foods.each do |food| %>
-      <div class="food_item">
+      <div class="food_item col-2">
         <p><%= food.name %></p>
         <%= link_to food_path(food.id) do %>
-          <%= image_tag food.get_image(100,100) %>
+          <%= image_tag food.get_image(100,100),class: 'food_item' %>
         <% end %>
         <div id="food_id_<%= food.id %>" data-score=<%= food.review_average_score %>></div>
         <%= food.review_average_score %>
@@ -20,7 +20,7 @@
   <script>
       const foodList = document.getElementById('food_list')
       const score_option = {
-        size: 36,
+        size: 18,
         starOn: "<%= asset_path('star-on.png') %>",
         starOff: "<%= asset_path('star-off.png') %>",
         starHalf: "<%= asset_path('star-half.png') %>",

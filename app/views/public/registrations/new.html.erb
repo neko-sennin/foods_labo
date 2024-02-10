@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="row mt-3">
     <h2>新規登録</h2>
   </div>
@@ -14,10 +14,10 @@
   
     <div class="field">
       <%= f.label "性別" %>
-      <%= f.radio_button :gender, "unentered", checked: true %>未設定
-      <%= f.radio_button :gender, "male" %>男性
-      <%= f.radio_button :gender, "female" %>女性
-      <%= f.radio_button :gender, "other" %>その他
+      <%= f.radio_button :gender, "unentered", checked: true %><%= f.label :gender, "未設定", value: "unentered" %>
+      <%= f.radio_button :gender, "male" %><%= f.label :gender, "男性", value: "male" %>
+      <%= f.radio_button :gender, "female" %><%= f.label :gender, "女性", value: "female" %>
+      <%= f.radio_button :gender, "other" %><%= f.label :gender, "その他", value: "other" %>
     </div>
   
     <div class="field">

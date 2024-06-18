@@ -17,7 +17,6 @@
 - ダイエットに効果的な食材が知りたい時
 
 ## 設計書
-[![](./foods_labo_ER図.drawio.png)]
 
 ## 開発環境
 - OS：macOS

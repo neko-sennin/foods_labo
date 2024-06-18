@@ -10,3 +10,21 @@ Admin.create!(
   email: 'admin@admin',
   password: 'testtest'
 )
+
+taro = User.find_or_create_by!(email: "user@user") do |user|
+  user.name = "太郎"
+  user.password = "password"
+end
+
+banana = Food.find_or_create_by!(name: "バナナ") do |food|
+  food.category_id = fruit
+end
+
+fruit = Category.find_or_create_by!(name: "果物") do |category|
+  
+end
+
+Review.find_or_create_by!(title: "ダイエットに効果的！") do |review|
+  review.food = banana
+  review.user = taro
+end

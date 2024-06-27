@@ -16,15 +16,24 @@ taro = User.find_or_create_by!(email: "user@user") do |user|
   user.password = "password"
 end
 
-banana = Food.find_or_create_by!(name: "バナナ") do |food|
-  food.category_id = fruit
-end
-
-fruit = Category.find_or_create_by!(name: "果物") do |category|
+banana = Food.find_or_create_by!(name: "バナナ", category_id: 1) do |food|
   
 end
 
 Review.find_or_create_by!(title: "ダイエットに効果的！") do |review|
   review.food = banana
   review.user = taro
+end
+
+
+categories = [
+  {id: 1, name: "果物"},
+  {id: 2, name: "野菜"},
+  {id: 3, name: "肉類"},
+  {id: 4, name: "魚類・甲殻類"},
+  {id: 5, name: "穀類(米・小麦)"}
+]
+
+categories.each do |category|
+  Category.find_or_create_by(category)
 end

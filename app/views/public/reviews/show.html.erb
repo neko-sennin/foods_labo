@@ -25,7 +25,7 @@
       </tr>
       <tr>
         <th>感想</th>
-        <td><%= @review.comment %></td>
+        <td><%= simple_format( @review.comment, sanitize: true)%></td>
       </tr>
       <tr>
         <th>タグ</th>

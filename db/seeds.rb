@@ -44,11 +44,9 @@ categories = [
   {id: 4, name: "魚類・甲殻類"},
   {id: 5, name: "穀類(米・小麦)"}
 ]
-
 categories.each do |category|
   Category.find_or_create_by(category)
 end
-
 
 tags = [
   {id: 1, name: "ダイエット"},
@@ -62,7 +60,6 @@ tags = [
   {id: 9, name: "血糖値"}
   {id: 10, name: "睡眠の質向上"}
 ]
-
 tags.each do |tag|
   Tag.find_or_create_by(tag)
 end

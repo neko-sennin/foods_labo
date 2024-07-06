@@ -53,11 +53,11 @@ tags = [
   {id: 2, name: "美肌"},
   {id: 3, name: "美白"},
   {id: 4, name: "健康維持"},
-  {id: 5, name: "免疫力"}
-  {id: 6, name: "ストレス緩和"}
-  {id: 7, name: "便秘(腸活)"}
-  {id: 8, name: "体脂肪"}
-  {id: 9, name: "血糖値"}
+  {id: 5, name: "免疫力"},
+  {id: 6, name: "ストレス緩和"},
+  {id: 7, name: "便秘(腸活)"},
+  {id: 8, name: "体脂肪"},
+  {id: 9, name: "血糖値"},
   {id: 10, name: "睡眠の質向上"}
 ]
 tags.each do |tag|

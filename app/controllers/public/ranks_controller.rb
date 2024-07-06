@@ -5,7 +5,7 @@ class Public::RanksController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:tag_id])
+    @tag = Tag.find(params[:id])
   end
   
 end

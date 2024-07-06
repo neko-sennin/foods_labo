@@ -1,4 +1,4 @@
-<% if review.liked_by?(current_user) %>
+<% if user_signed_in? && review.liked_by?(current_user) %>
   <%= link_to likes_path(review_id: review), method: :delete, class: "like-btn text-dark" do %>
     <i class="fas fa-heart liked" style="color: red;"></i>
     <%= review.likes.count %>

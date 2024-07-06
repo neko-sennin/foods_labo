@@ -25,6 +25,17 @@ zirou = User.find_or_create_by!(email: "2@gmail.com") do |user|
   user.password = "password"
 end
 
+categories = [
+  {id: 1, name: "果物"},
+  {id: 2, name: "野菜"},
+  {id: 3, name: "肉類"},
+  {id: 4, name: "魚類・甲殻類"},
+  {id: 5, name: "穀類(米・小麦)"}
+]
+categories.each do |category|
+  Category.find_or_create_by(category)
+end
+
 
 banana = Food.find_or_create_by!(name: "バナナ", category_id: 1) do |food|
   
@@ -40,16 +51,6 @@ Review.find_or_create_by!(title: "ダイエットに効果的！") do |review|
 end
 
 
-categories = [
-  {id: 1, name: "果物"},
-  {id: 2, name: "野菜"},
-  {id: 3, name: "肉類"},
-  {id: 4, name: "魚類・甲殻類"},
-  {id: 5, name: "穀類(米・小麦)"}
-]
-categories.each do |category|
-  Category.find_or_create_by(category)
-end
 
 tags = [
   {id: 1, name: "ダイエット"},

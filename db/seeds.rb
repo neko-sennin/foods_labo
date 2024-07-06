@@ -32,6 +32,9 @@ end
 
 
 Review.find_or_create_by!(title: "ダイエットに効果的！") do |review|
+  review.title = "タイトル"
+  review.comment = "コメント"
+  review.star = 3
   review.food = banana
   review.user = taro
 end
